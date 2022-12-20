@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/TodoList.css'
+import "./TodoList.css";
 
 function TodoList(props) {
   return (
@@ -9,4 +9,4 @@ function TodoList(props) {
   );
 }
 
-export  {TodoList};
+export { TodoList };

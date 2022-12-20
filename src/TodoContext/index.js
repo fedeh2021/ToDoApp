@@ -43,8 +43,9 @@ function TodoProvider(props) {
     setSaveTodos(newTodos)
   }
   const deleteTodo = (text) => {
-    const newTodos = todos.filter((todo) => todo.text !== text);
-    setSaveTodos(newTodos);
+    const todoIndex = todos.findIndex(todo => todo.text === text);
+    const newTodos = [...todos];
+    newTodos.splice(todoIndex, 1);    setSaveTodos(newTodos);
   };
 
   return (

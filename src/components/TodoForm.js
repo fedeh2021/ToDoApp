@@ -4,7 +4,6 @@ import "../styles/TodoForm.css";
 
 function TodoForm() {
   const [newTodoValue, setNewTodoValue] = useState("");
-
   const { addTodo, setOpenModal } = useContext(TodoContext);
 
   const onCancel = () => {
@@ -23,7 +22,7 @@ function TodoForm() {
     <form onSubmit={onSubmit}>
       <label>Escribí la nueva tarea</label>
       <textarea
-        placeholder="Cortar la cebolla para el almuerzo"
+        placeholder="Tarea pendiente"
         value={newTodoValue}
         onChange={onChange}
       />
@@ -35,11 +34,7 @@ function TodoForm() {
         >
           Cancelar
         </button>
-        <button
-          onClick={onSubmit}
-          type="submit"
-          className="TodoForm-button TodoForm-button--add"
-        >
+        <button type="submit" className="TodoForm-button TodoForm-button--add">
           Añadir
         </button>
       </div>

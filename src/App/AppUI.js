@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { TodoContext } from "../TodoContext";
-import { TodoCounter } from "../components/TodoCounter";
-import { TodoSearch } from "../components/TodoSearch";
-import { TodoList } from "../components/TodoList";
-import { TodoItem } from "../components/TodoItem";
+import { TodoCounter } from "../TodoCounter";
+import { TodoSearch } from "../TodoSearch";
+import { TodoList } from "../TodoList";
+import { TodoItem } from "../TodoItem";
 import { CreateTodoButton } from "../components/CreateTodoButton";
 import { Modal } from "../modal";
 import { TodoForm } from "../components/TodoForm";
-import { TodosError } from "../components/TodosError";
-import { TodosLoading } from "../components/TodosLoading";
+import { TodosError } from "../TodosError";
+import { TodosLoading } from "../TodosLoading";
 import { EmptyTodos } from "../components/EmptyTodos";
 
 function AppUI() {
@@ -27,7 +27,7 @@ function AppUI() {
       <TodoSearch />
 
       <TodoList>
-        {error && <TodosError error={error}/>}
+        {error && <TodosError />}
         {loading && <TodosLoading />}
         {(!loading && !searchedTodos.length) && <EmptyTodos />}
 
