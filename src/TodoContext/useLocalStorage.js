@@ -6,6 +6,14 @@ export function useLocalStorage(key, initialValue) {
   const [item, setItem] = useState(initialValue);
 
   useEffect(() => {
+    const getTasksCount = () => {
+      const tasks = JSON.parse(localStorage.getItem(key)) || []
+      return tasks.length
+    }
+
+    const tasksCount = getTasksCount()
+    const timeout = tasksCount > 0 ? tasksCount * 500 : 1000
+
     setTimeout(() => {
       try {
         const serializedItem = localStorage.getItem(key);
@@ -22,7 +30,7 @@ export function useLocalStorage(key, initialValue) {
       } catch (error) {
         setError(error);
       }
-    }, 2000);
+    }, timeout);
   }, [initialValue, key]);
 
   const saveItem = (newItem) => {
