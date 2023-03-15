@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "./TodoSearch.css";
+import "../styles/TodoSearch.css";
 import { TodoContext } from "../TodoContext";
 
 function TodoSearch() {
