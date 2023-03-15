@@ -6,35 +6,41 @@ function TodoForm() {
   const [newTodoValue, setNewTodoValue] = useState("");
   const { addTodo, setOpenModal } = useContext(TodoContext);
 
-  const onCancel = () => {
+  const handleCancelClick = (e) => {
+    e.preventDefault();
     setOpenModal(false);
   };
-  const onSubmit = (e) => {
+  const handleFormSubmit = (e) => {
     e.preventDefault();
     addTodo(newTodoValue);
     setOpenModal(false);
     setNewTodoValue("");
   };
-  const onChange = (e) => {
+  const handleInputChange = (e) => {
     setNewTodoValue(e.target.value);
   };
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={handleFormSubmit}>
       <label>Escribí la nueva tarea</label>
       <textarea
+        id="newTodoValue"
         placeholder="Tarea pendiente"
         value={newTodoValue}
-        onChange={onChange}
+        onChange={handleInputChange}
       />
       <div className="TodoForm-buttonContainer">
         <button
-          onClick={onCancel}
-          type="button"
+          onClick={handleCancelClick}
+          aria-label="Cancelar"
           className="TodoForm-button TodoForm-button--cancel"
         >
           Cancelar
         </button>
-        <button type="submit" className="TodoForm-button TodoForm-button--add">
+        <button
+          type="submit"
+          aria-label="Añadir"
+          className="TodoForm-button TodoForm-button--add"
+        >
           Añadir
         </button>
       </div>

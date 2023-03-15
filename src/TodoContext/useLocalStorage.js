@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-function useLocalStorage(itemName, initialValue) {
-  const [error, setError] = useState(false);
+export function useLocalStorage(key, initialValue) {
+  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [item, setItem] = useState(initialValue);
 
   useEffect(() => {
     setTimeout(() => {
       try {
-        const localStorageItem = localStorage.getItem(itemName);
+        const serializedItem = localStorage.getItem(key);
         let parsedItem;
 
-        if (!localStorageItem) {
-          localStorage.setItem(itemName, JSON.stringify(initialValue));
+        if (!serializedItem) {
+          localStorage.setItem(key, JSON.stringify(initialValue));
           parsedItem = initialValue;
         } else {
-          parsedItem = JSON.parse(localStorageItem);
+          parsedItem = JSON.parse(serializedItem);
         }
         setItem(parsedItem);
         setLoading(false);
@@ -23,12 +23,12 @@ function useLocalStorage(itemName, initialValue) {
         setError(error);
       }
     }, 2000);
-  });
+  }, [initialValue, key]);
 
   const saveItem = (newItem) => {
     try {
-      const stringifiedTodos = JSON.stringify(newItem);
-      localStorage.setItem(itemName, stringifiedTodos);
+      const serializedItem = JSON.stringify(newItem);
+      localStorage.setItem(key, serializedItem);
       setItem(newItem);
     } catch (error) {
       setError(error);
@@ -41,5 +41,3 @@ function useLocalStorage(itemName, initialValue) {
     error,
   };
 }
-
-export { useLocalStorage };

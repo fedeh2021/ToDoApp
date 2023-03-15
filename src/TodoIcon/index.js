@@ -1,5 +1,5 @@
 import React from "react";
-import "./TodoIcon.css";
+import "../styles/TodoIcon.css";
 import { ReactComponent as CheckSVG } from "./check.svg";
 import { ReactComponent as DeleteSVG } from "./delete.svg";
 

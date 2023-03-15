@@ -15,13 +15,6 @@
     font-weight: 400;
 }
 
-.LoadingTodo-completeIcon,
-.LoadingTodo-deleteIcon {
-    border-radius: 50px;
-    height: 48px;
-    width: 48px;
-}
-
 .LoadingTodo-completeIcon {
     position: absolute;
     left: 12px;

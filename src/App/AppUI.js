@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { TodoContext } from "../TodoContext";
-import { TodoCounter } from "../TodoCounter";
+import { TodoCounter } from "../components/TodoCounter";
 import { TodoSearch } from "../TodoSearch";
 import { TodoList } from "../TodoList";
-import { TodoItem } from "../TodoItem";
+import { TodoItem } from "../components/TodoItem";
 import { CreateTodoButton } from "../components/CreateTodoButton";
 import { Modal } from "../modal";
 import { TodoForm } from "../components/TodoForm";
-import { TodosError } from "../TodosError";
+import { TodosError } from "../components/TodosError";
 import { TodosLoading } from "../TodosLoading";
 import { EmptyTodos } from "../components/EmptyTodos";
 
